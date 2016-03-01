@@ -1,0 +1,25 @@
+﻿@using System.Linq
+@model JSONWebService.Models.GenderPetList
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<b>Male</b>
+<ul>
+    @foreach (var link in Model.GenderPets.Where(c => c.OwnerGender.ToLower() == "male").Select(c => c.PetName).ToList())
+    {
+            <li>
+                @link
+            </li>
+    }
+</ul>
+<b>Female</b>
+<ul>
+    @foreach (var link in Model.GenderPets.Where(c => c.OwnerGender.ToLower() == "female").Select(c => c.PetName).ToList())
+    {
+            <li>
+                @link
+            </li>
+    }
+</ul>
